@@ -1,0 +1,20 @@
+package pages;
+
+import org.openqa.selenium.WebElement;
+
+public class Location extends base {
+
+	
+	
+	do {      
+	    WebElement source = driver.findElement(By.xpath("//android.view.View[@instance='0']"));    
+	    WebElement destination = driver.findElement(By.xpath("//android.view.View[@instance='30']"));       
+	    TouchAction action = new TouchAction((PerformsTouchActions)driver);    
+	    System.out.println("Dragging item");    
+	    action.longPress(source).moveTo(destination).release().perform();   
+	    boolean bul = driver.findElementsByXPath("//android.view.View[@content-desc='30 January 2020']").isEmpty();
+
+	  } while(bul!=false);   
+
+	driver.findElementByAccessibilityId("30 January 2020").click();
+}
